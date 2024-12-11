@@ -1,0 +1,48 @@
+.Section{
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4ltFSpAC_PNJl1aDjhvV-jrF5sRf60Ug2rLO-oNXzPlXRupu8fmsYTHD-stI1kgittX17jW0JhCfHaP-iW3qa5vJClMyl08LzSyFjZ8y838D8TtFZWA1C4fj1btuowGWXWLNlaWxpLoL_0A4yST2J04Uk04HCVGBHW4_qQnIXJcWyQXhX5L3pW5sJrLlH/s16000/Captura%20de%20tela%202023-09-13%2008.06.44.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.section1{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    background-color: rgb(40, 55, 255, .5);
+    padding: 20px;
+    color: var(--corQui);
+}
+
+.SectionInformacao{
+    width: 50%;
+    padding: 10px;
+
+    h1{
+        filter: drop-shadow(1px 2px 5px #000000);
+    }
+
+    p{
+        background-color: var(--corQui);
+        border-radius: 15px;
+        color: var(--corQua);
+        padding: 20px;
+        font-size: 17px;
+        text-align: justify;
+    }
+}
+
+.SectionFoto{
+    width: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    div{
+        width: 250px;
+        height: 250px;
+        border-radius: 20px;
+        background-color: var(--corQui);
+    }
+}

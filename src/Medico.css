@@ -1,0 +1,99 @@
+.centralMedico {
+    height: 100dvh;
+    width: 100%;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-image: url('MedicoWall.png');
+    background-size: cover;
+}
+
+.MedicoAgenda {
+    box-shadow: 2px 2px 10px 2px#cacaca;
+    width: 500px;
+    height: 430px;
+    padding-top: 80px;
+}
+
+.inforMedico {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    padding: 10px;
+}
+
+.nomeMedico {
+    width: 100%;
+}
+
+.matriculaMedico {
+    width: 100%;
+}
+
+.centralMatriculaMedico {
+    width: 30%;
+}
+
+.centralNomeMedico {
+    width: 70%;
+}
+
+.centralSetorMedico {
+    width: 50%;
+}
+
+.centralHoraMedico {
+    width: 50%;
+}
+
+.buttonMedico {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 10px;
+
+    button{
+        border:none;
+        padding: 10px;
+        border-radius: 15px;
+        background-color: #00719e;
+        color: #ffffff;
+        width: 70%;
+    }
+    button:hover{
+        background-color: #003e57;
+        transition: .4s all;
+        cursor: pointer;
+    }
+}
+
+.tituloMedico{
+    font-size: 30px;
+    width: 50%;
+    color: #00719e;
+    margin: auto;
+    border: none;
+}
+
+input{
+    outline: none;
+    padding: 5px;
+}
+
+select{
+    padding: 5px;
+    outline: none;
+}
+select:active{
+    background-color: #003e57;
+
+}
+.successMessage{
+    font-size: 17px;
+    color: #0dcc1d;
+    padding: 10px;
+}

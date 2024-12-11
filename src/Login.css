@@ -1,0 +1,126 @@
+.LoginCentral{
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    background-image: url('loginCapa.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.ImagemLogin{
+    width: 100px;
+    height: 100px;
+    background-color: var(--corQua);
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+h1{
+    color: var(--corQui);
+    text-align: center;
+}
+
+hr{
+    margin: 10px;
+}
+
+.Login{
+    border-radius: 15px;
+    width: 350px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    margin-left: 30%;
+    border: 1px solid #f8f8f8;
+}
+
+.ImagemLogin{
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    img{
+        width: 100px;
+        border-radius: 50px;
+    }
+}
+
+.emailCentro{
+    display: block;
+    width: 80%;
+    margin: auto;
+
+    input{
+        width: 100%;
+        border: none;
+        border-bottom: .3px solid #ffffff;
+        outline: none;
+        background-color: transparent;
+        color: var(--corQui);
+        font-size: 15px;
+    }
+    p{
+        transform: translateY(30px);
+        font-size: 20px;
+        padding: 10px;
+        width: 2px;
+        transition: all .7s ease;
+        margin: 5px;
+        color: var(--corQui);
+    }
+
+    input:focus p{
+        transform: translateY(0);
+        
+    }
+    
+}
+.senhaCentro{
+    display: block;
+    width: 80%;
+    margin: auto;
+
+    input{
+        width: 100%;
+        border: none;
+        border-bottom: .3px solid #ffffff;
+        outline: none;
+        background-color: transparent;
+        color: var(--corQui);
+        font-size: 15px;
+    }
+    p{
+        transform: translateY(30px);
+        font-size: 20px;
+        padding: 10px;
+        width: 2px;
+        transition: all .7s ease;
+        margin: 5px;
+        color: var(--corQui);
+        
+    }
+
+    input:focus p{
+        transform: translateY(0);
+        
+    }
+    
+}
+
+.Submit{
+    width: 60%;
+    padding: 5px;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+}
+
+.submitLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

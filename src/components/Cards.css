@@ -1,0 +1,57 @@
+
+.Cards {
+    padding: 30px;
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.Card {
+    background-color: var(--corCard);
+    width: 20%;
+    height: 500px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px #dfdfdf;
+}
+
+.CardFoto img {
+    width: 100%;
+    height: 300px;  
+    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+}
+
+.CardTitulo h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.CardButton{
+    margin-top: 10px;
+    width: 100%;
+
+
+    button{
+        background-color: var(--corPri);
+        color: var(--corQui);
+        border: none;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 20px;    
+    }
+
+    a{
+        text-decoration: none;
+        color: var(--corQui);
+    }
+
+    button:hover{
+        background-color: var(--corSec);
+        transition: all .2s ease;
+        cursor: pointer;
+    }
+}
+
