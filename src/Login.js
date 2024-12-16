@@ -42,9 +42,9 @@ export default function Login() {
             navigate('/Home');
         } 
         // Caso contrário, verificamos se é o login admin (e-mail e senha específicos)
-        else if (email === "admin@escolar.ifrn.edu.br" && password === "2021107401003") {
+        else if (email === "admin@escolar.ifrn.edu.br" && password === "fastadmin") {
             // Se as condições do admin forem atendidas, navega para a página Home
-            navigate('/Home');
+            navigate('/admin');
         } 
         else {
             // Se nenhuma das condições acima for atendida, exibe uma mensagem de erro

@@ -11,6 +11,7 @@ import Medico from './Medico';
 import Esporte from './Esporte';
 import Auth from './components/Auth';
 import Alimentacao from './Alimentacao';
+import Admin from './Admin';
 
 const Router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const Router = createBrowserRouter([
   {
     path: "Setor_alimenticio",
     element: <Alimentacao />
+  },
+  {
+    path:"Admin",
+    element: <Admin />
   }
 ]);
 

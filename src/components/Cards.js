@@ -62,22 +62,6 @@ export default function Cards() {
                 </div>
             </div>
 
-            <div className="Card">
-                <div className="CardFoto">
-                    <img src={Educacao} alt="FotoCard" />
-                </div>
-                <div className="CardTitulo">
-                    <h1>Setor Educativo</h1>
-                </div>
-                <div className="CardDescricao">
-                    <p>Aprendizado e Inovação em Cada Passo! </p>
-                </div>
-                <div className="CardButton">
-                    {/* <button onClick={MedicoClick}></button> */}
-                    <button>Setor Educativo</button>
-                </div>
-            </div>
-
         </div>
     );
 }

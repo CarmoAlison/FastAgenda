@@ -1,12 +1,41 @@
 import './Medico.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-export default function Medico() {
+export default function Esporte() {
     const [showMessage, setShowMessage] = useState(false);
-    function handleSubmit(event) {
+    const [formData, setFormData] = useState({
+        nome: '',
+        matricula: '',
+        setor: 'Academia',
+        horario: '07:00h à 07:45h'
+    });
+
+    const handleSubmit = async (event) => {
         event.preventDefault(); // Evita o comportamento padrão de recarregar a página
+        await sendDataToSheet(); // Envia os dados para o Sheet
         setShowMessage(true); // Mostra a mensagem de sucesso
-    }
+        setFormData({ nome: '', matricula: '', setor: 'Academia', horario: '07:00h à 07:45h' }); // Reseta formulário
+    };
+
+    const sendDataToSheet = async () => {
+        try {
+            const response = await fetch('https://api.sheetbest.com/sheets/9f430570-a7ac-4290-a64b-7cfcc149ed75', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Api-Key': '5fXwQKjxR-H0gAnIrfILmJjrt$q0muscFTRqpVHvW9re8us!Q!VRA7KVAqz-q8mh' // Substitua pela sua chave da API
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao enviar os dados.');
+            }
+        } catch (error) {
+            alert('Erro ao enviar os dados. Verifique a conexão.');
+        }
+    };
+
     return (
         <div className='centralMedico'>
             <div className='MedicoAgenda'>
@@ -15,24 +44,42 @@ export default function Medico() {
                     <div className="inforMedico">
                         <div className="centralNomeMedico">
                             Nome do aluno:<br />
-                            <input type="Text" className="nomeMedico" />
+                            <input
+                                type="text"
+                                className="nomeMedico"
+                                value={formData.nome}
+                                onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                            />
                         </div>
                         <div className="centralMatriculaMedico">
                             Matrícula:<br />
-                            <input type="number" className="matriculaMedico" />
+                            <input
+                                type="number"
+                                className="matriculaMedico"
+                                value={formData.matricula}
+                                onChange={(e) => setFormData({ ...formData, matricula: e.target.value })}
+                            />
                         </div>
                     </div>
                     <div className="inforMedico">
                         <div className="centralSetorMedico">
                             Selecione opção: <br />
-                            <select className="setorMedico">
+                            <select
+                                className="setorMedico"
+                                value={formData.setor}
+                                onChange={(e) => setFormData({ ...formData, setor: e.target.value })}
+                            >
                                 <option>Academia</option>
                                 <option>Quadra</option>
                             </select>
                         </div>
                         <div className="centralHoraMedico">
                             Selecione horário: <br />
-                            <select className="horaMedico">
+                            <select
+                                className="horaMedico"
+                                value={formData.horario}
+                                onChange={(e) => setFormData({ ...formData, horario: e.target.value })}
+                            >
                                 <option>07:00h à 07:45h</option>
                                 <option>07:45h à 08:30h</option>
                                 <option>08:50h à 09:35h</option>
@@ -45,10 +92,8 @@ export default function Medico() {
                                 <option>15:35h à 16:20h</option>
                                 <option>16:30h à 17:15h</option>
                                 <option>17:15h à 18:00h</option>
-
                             </select>
                         </div>
-
                     </div>
                     <div className="buttonMedico"><button>Agendar</button></div>
                 </form>
