@@ -37,8 +37,8 @@ export default function Esporte() {
     };
 
     return (
-        <div className='centralMedico'>
-            <div className='MedicoAgenda'>
+        <div  id='esporte'>
+            <div className='MedicoAgenda' id='esporteagende'>
                 <h1 className='tituloMedico'>Setor Esportivo</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="inforMedico">

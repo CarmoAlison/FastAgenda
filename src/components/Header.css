@@ -1,36 +1,37 @@
-.header{
+.header {
     display: flex;
     padding: 10px;
     width: 100%;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
-    background:linear-gradient( #000000, #3533cd);
+    background: linear-gradient(#000000, #3533cd);
     color: var(--corQui);
     box-shadow: 2px 2px 5px #a7a7a7;
 }
 
-.MenuInf{
+.MenuInf {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.header-links a{
+.header-links a {
     color: var(--corQui);
     gap: 20px;
     text-decoration: none;
     margin-left: 20px;
     padding: 10px;
 }
-.header-links a:hover{
-    color: var(--corPri);   
+
+.header-links a:hover {
+    color: var(--corPri);
     background-color: var(--corQui);
     border-radius: 20px;
     transition: all .2s;
 }
 
-.perfil{
+.perfil {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -39,9 +40,52 @@
     background-position: center;
 }
 
-.header-logo{
+.header-logo {
     background-color: var(--corQui);
     width: 60px;
     border-radius: 50px;
 }
 
+/* Responsividade */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Organiza o layout em coluna em telas menores */
+        align-items: flex-start;
+    }
+
+    .header-links {
+        display: none; /* Esconde os links em telas pequenas */
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .header-links.active {
+        display: flex; /* Exibe os links quando o menu hambúrguer for ativado */
+    }
+
+    .MenuInf {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .hamburger {
+        display: block; /* Exibe o ícone de hambúrguer */
+        cursor: pointer;
+    }
+
+    .hamburger div {
+        width: 30px;
+        height: 3px;
+        background-color: var(--corQui);
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+}
+
+@media (min-width: 769px) {
+    .hamburger {
+        display: none; /* Esconde o hambúrguer em telas grandes */
+    }
+}

@@ -1,4 +1,3 @@
-
 .Cards {
     padding: 30px;
     display: flex;
@@ -6,14 +5,16 @@
     justify-content: center;
     gap: 20px;
     width: 100%;
+    flex-wrap: wrap; /* Permite que os cards se ajustem em várias linhas quando necessário */
 }
 
 .Card {
     background-color: var(--corCard);
-    width: 20%;
+    width: 20%; /* Em telas grandes, os cards ocuparão 20% */
     height: 500px;
     border-radius: 15px;
     box-shadow: 1px 1px 3px #dfdfdf;
+    transition: all 0.3s ease;
 }
 
 .CardFoto img {
@@ -23,35 +24,67 @@
     object-fit: cover;
 }
 
-.CardTitulo h1{
+.CardTitulo h1 {
     font-family: "Poppins", sans-serif;
     font-weight: 800;
     font-style: normal;
 }
 
-.CardButton{
+.CardButton {
     margin-top: 10px;
     width: 100%;
+}
 
+.CardButton button {
+    background-color: var(--corPri);
+    color: var(--corQui);
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 20px;    
+}
 
-    button{
-        background-color: var(--corPri);
-        color: var(--corQui);
-        border: none;
-        padding: 10px;
-        font-size: 20px;
-        border-radius: 20px;    
-    }
+.CardButton a {
+    text-decoration: none;
+    color: var(--corQui);
+}
 
-    a{
-        text-decoration: none;
-        color: var(--corQui);
-    }
+.CardButton button:hover {
+    background-color: var(--corSec);
+    transition: all .2s ease;
+    cursor: pointer;
+}
 
-    button:hover{
-        background-color: var(--corSec);
-        transition: all .2s ease;
-        cursor: pointer;
+/* Responsividade */
+
+/* Para telas médias (Tablets e telas de 768px até 1024px) */
+@media (max-width: 1024px) {
+    .Card {
+        width: 30%; /* Em telas médias, os cards ocupam 30% da largura */
     }
 }
 
+/* Para telas pequenas (dispositivos móveis, max-width: 768px) */
+@media (max-width: 768px) {
+    .Card {
+        width: 45%; /* Em smartphones, os cards ocupam 45% da largura */
+        height: 600px; /* Ajusta a altura dos cards */
+    }
+}
+
+/* Para telas muito pequenas (telas de dispositivos móveis, max-width: 480px) */
+@media (max-width: 480px) {
+    .Card {
+        width: 90%; /* Os cards ocupam praticamente toda a largura da tela em dispositivos menores */
+        height: 450px; /* Ajuste de altura */
+    }
+
+    .CardTitulo h1 {
+        font-size: 18px; /* Tamanho da fonte reduzido */
+    }
+
+    .CardButton button {
+        font-size: 16px; /* Ajuste do tamanho do botão */
+        padding: 8px;
+    }
+}

@@ -1,41 +1,45 @@
 import './Header.css';
-import Perfil from './perfil.png'
+import Perfil from './perfil.png';
 import LogoP from '../logoPrin.png';
 import { CartContext } from "../store/shopping-cart-context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-// import InstagramIcon from '@mui/icons-material/Instagram';
-// import XIcon from '@mui/icons-material/X'
-// import YouTubeIcon from '@mui/icons-material/YouTube';
 
 export default function Header({ Logo, menu }) {
-
     const { session, items } = useContext(CartContext);
-
-    // const modal = useRef();
-
     const cartQuantity = items.length;
+
+    // Estado para controlar a visibilidade do menu no mobile
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    // Função para alternar o menu
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
     return (
-        <header class="header">
+        <header className="header">
             <img src={LogoP} className="header-logo" alt="logo" />
-            <div id="main-title">
-                {/* <img src="logo.png" alt="Elegant model" /> */}
-                {session && (
-                    <Link to="/auth" className="link_auth">
-                        <h3>Welcome, {session.user.user_metadata.first_name} {session.user.user_metadata.last_name}</h3>
-                    </Link>
-                )}
+
+            <div className="MenuInf">
+                {/* Ícone do menu hamburguer */}
+                <div className="hamburger" onClick={toggleMenu}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
-            <div class="MenuInf">
-                <nav className="header-links">
-                    {menu.map((item) => <a href={"/" + item.toLowerCase()}>{item}</a>)} 
-                </nav>
-            </div>
+
+            <nav className={`header-links ${menuOpen ? 'active' : ''}`}>
+                <Link to="/home" className="menu-item">Home</Link>
+                <Link to="/setor_medico" className="menu-item">Setor Médico</Link>
+                <Link to="/setor_esporte" className="menu-item">Setor Esportivo</Link>
+                <Link to="/setor_alimenticio" className="menu-item">Setor Alimentício</Link>
+            </nav>
+
             <div className="perfil">
-
+                {/* Adicione aqui o ícone de perfil ou outras funcionalidades */}
             </div>
-
         </header>
-
     );
 }

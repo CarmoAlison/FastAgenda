@@ -97,3 +97,31 @@ select:active{
     color: #0dcc1d;
     padding: 10px;
 }
+
+#esporte{
+    height: 100dvh;
+    width: 100%;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-image: url('EsporteCapa.jpg');
+    background-size: contain;
+    background-position: center;
+}
+
+#esporteagende{
+    background-color: rgba(223, 223, 223, 0.671);
+}
+
+#alimento{
+    height: 100dvh;
+    width: 100%;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-image: url('AlimentoCapa.png');
+    background-size: cover;
+    background-position: center;
+}

@@ -7,7 +7,7 @@ export default function Section1() {
         <div Class="Section">
             <div class="section1">
                 <div class="SectionFoto">
-                    <div><img scr={LogoIF} alt="IFRN" /></div>
+                    <div id='fotosection'></div>
                 </div>
                 <div class="SectionInformacao">
                     <h1>O que o site te proporciona?</h1>

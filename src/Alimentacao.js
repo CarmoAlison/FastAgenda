@@ -55,7 +55,7 @@ export default function Alimenticio() {
     };
 
     return (
-        <div className='centralMedico'>
+        <div className='centralMedico' id='alimento'>
             <div className='MedicoAgenda'>
                 <h1 className='tituloMedico'>Setor Alimentício</h1>
                 <form onSubmit={handleSubmit}>
