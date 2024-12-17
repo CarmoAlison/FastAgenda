@@ -19,7 +19,7 @@ export default function Login() {
 
             input.addEventListener('blur', () => {
                 if (!input.value) {
-                    input.previousElementSibling.style.transform = 'translateY(40px)';
+                    input.previousElementSibling.style.transform = 'translateY(25px)';
                 }
             });
         });
