@@ -95,7 +95,7 @@ export default function Alimenticio() {
                             </select>
                         </div>
                         <div className="centralHoraMedico">
-                            Selecione horário: <br />
+                            Selecione Data: <br />
                             <select
                                 className="setorMedico"
                                 value={formData.horario}
@@ -112,7 +112,7 @@ export default function Alimenticio() {
                 </form>
                 {showMessage && ( // Renderiza a mensagem de sucesso apenas se showMessage for true
                     <div className="successMessage">
-                        Seu agendamento foi concluído com sucesso!
+                        Seu agendamento foi concluído com sucesso! Pro dia {formData.horario}
                     </div>
                 )}
             </div>

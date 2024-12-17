@@ -28,9 +28,16 @@
     margin-bottom: 10px;
 }
 
+/* Contêiner da tabela com rolagem horizontal */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Permite a rolagem horizontal */
+}
+
 /* Tabela */
 table {
     width: 100%;
+    min-width: 800px; /* Garante que a tabela tenha uma largura mínima maior do que o contêiner */
     border-collapse: collapse;
     margin-top: 10px;
 }
@@ -65,6 +72,7 @@ table tr:hover {
     font-size: 16px;
 }
 
+/* Botões */
 button {
     background-color: #f44336; /* Cor vermelha */
     color: white;
@@ -74,9 +82,54 @@ button {
     cursor: pointer;
     font-size: 16px;
     margin: 5px;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #d32f2f;
-  }
-  
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .adminContainer {
+        width: 100%;
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .adminContainer {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .adminContainer h1 {
+        font-size: 18px;
+    }
+
+    .section h2 {
+        font-size: 18px;
+    }
+
+    table th, table td {
+        padding: 6px;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
