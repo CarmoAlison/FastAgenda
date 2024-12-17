@@ -94,6 +94,7 @@ button:hover {
         width: 100%;
         padding: 15px;
         overflow-x: auto;
+        background-color: #333;
     }
 
     .section h2 {
