@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 export default function Medico() {
     const [showMessage, setShowMessage] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(''); // Mensagem de erro
     const [formData, setFormData] = useState({
         nome: '',  // Dados estáticos para teste
         matricula: '', 
@@ -10,7 +11,39 @@ export default function Medico() {
         horario: '07:30hrs',
     });
 
+    const checkIfSlotIsOccupied = async () => {
+        try {
+            // Consultar a planilha para verificar se o horário já está ocupado
+            const response = await fetch('https://api.sheetbest.com/sheets/23fcfd1f-857c-4fbf-b101-2ed15bb27e24', {
+                method: 'GET',
+                headers: {
+                    'X-Api-Key': '5fXwQKjxR-H0gAnIrfILmJjrt$q0muscFTRqpVHvW9re8us!Q!VRA7KVAqz-q8mh',
+                },
+            });
+
+            const data = await response.json();
+
+            // Verifica se já existe um registro para o mesmo setor e horário
+            const isOccupied = data.some(item => item.setor === formData.setor && item.horario === formData.horario);
+
+            if (isOccupied) {
+                setErrorMessage('Esse horário já está ocupado. Por favor, escolha outro.');
+                return false; // Horário ocupado
+            }
+
+            setErrorMessage('');
+            return true; // Horário disponível
+        } catch (error) {
+            console.error('Erro ao verificar o horário:', error);
+            alert('Erro ao verificar disponibilidade do horário.');
+            return false;
+        }
+    };
+
     const sendDataToSheet = async () => {
+        const isSlotAvailable = await checkIfSlotIsOccupied();
+        if (!isSlotAvailable) return; // Não envia se o horário estiver ocupado
+
         try {
             console.log('Enviando dados:', formData); // Log para verificar os dados sendo enviados
             const response = await fetch('https://api.sheetbest.com/sheets/23fcfd1f-857c-4fbf-b101-2ed15bb27e24', {
@@ -114,6 +147,11 @@ export default function Medico() {
                 {showMessage && (
                     <div className="successMessage">
                         Seu agendamento foi concluído com sucesso!
+                    </div>
+                )}
+                {errorMessage && (
+                    <div className="errorMessage">
+                        {errorMessage}
                     </div>
                 )}
             </div>

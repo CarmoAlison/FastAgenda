@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 export default function Esporte() {
     const [showMessage, setShowMessage] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(''); // Para exibir mensagem de erro
     const [formData, setFormData] = useState({
         nome: '',
         matricula: '',
@@ -10,9 +11,42 @@ export default function Esporte() {
         horario: '07:00h à 07:45h'
     });
 
+    const checkIfSlotIsOccupied = async () => {
+        try {
+            // Consultar a planilha para verificar se o horário já está ocupado
+            const response = await fetch('https://api.sheetbest.com/sheets/9f430570-a7ac-4290-a64b-7cfcc149ed75', {
+                method: 'GET',
+                headers: {
+                    'X-Api-Key': '5fXwQKjxR-H0gAnIrfILmJjrt$q0muscFTRqpVHvW9re8us!Q!VRA7KVAqz-q8mh',
+                },
+            });
+
+            const data = await response.json();
+
+            // Verifica se já existe um registro para o mesmo setor e horário
+            const isOccupied = data.some(item => item.setor === formData.setor && item.horario === formData.horario);
+
+            if (isOccupied) {
+                setErrorMessage('Esse horário já está ocupado. Por favor, escolha outro.');
+                return false; // Horário ocupado
+            }
+
+            setErrorMessage('');
+            return true; // Horário disponível
+        } catch (error) {
+            console.error('Erro ao verificar o horário:', error);
+            alert('Erro ao verificar disponibilidade do horário.');
+            return false;
+        }
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault(); // Evita o comportamento padrão de recarregar a página
-        await sendDataToSheet(); // Envia os dados para o Sheet
+        const isSlotAvailable = await checkIfSlotIsOccupied();
+        if (!isSlotAvailable) return; // Não envia os dados se o horário estiver ocupado
+
+        // Envia os dados para a planilha
+        await sendDataToSheet();
         setShowMessage(true); // Mostra a mensagem de sucesso
         setFormData({ nome: '', matricula: '', setor: 'Academia', horario: '07:00h à 07:45h' }); // Reseta formulário
     };
@@ -23,7 +57,7 @@ export default function Esporte() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-Api-Key': '5fXwQKjxR-H0gAnIrfILmJjrt$q0muscFTRqpVHvW9re8us!Q!VRA7KVAqz-q8mh' // Substitua pela sua chave da API
+                    'X-Api-Key': '5fXwQKjxR-H0gAnIrfILmJjrt$q0muscFTRqpVHvW9re8us!Q!VRA7KVAqz-q8mh', // Substitua pela sua chave da API
                 },
                 body: JSON.stringify(formData),
             });
@@ -37,9 +71,9 @@ export default function Esporte() {
     };
 
     return (
-        <div  id='esporte'>
-            <div className='MedicoAgenda' id='esporteagende'>
-                <h1 className='tituloMedico'>Setor Esportivo</h1>
+        <div id="esporte">
+            <div className="MedicoAgenda" id="esporteagende">
+                <h1 className="tituloMedico">Setor Esportivo</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="inforMedico">
                         <div className="centralNomeMedico">
@@ -100,6 +134,11 @@ export default function Esporte() {
                 {showMessage && ( // Renderiza a mensagem de sucesso apenas se showMessage for true
                     <div className="successMessage">
                         Seu agendamento foi concluído com sucesso!
+                    </div>
+                )}
+                {errorMessage && ( // Renderiza a mensagem de erro
+                    <div className="errorMessage">
+                        {errorMessage}
                     </div>
                 )}
             </div>

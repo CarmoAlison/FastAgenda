@@ -124,3 +124,10 @@ select:active {
         padding: 6px;
     }
 }
+
+.errorMessage {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+}
