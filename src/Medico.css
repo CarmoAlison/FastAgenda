@@ -1,127 +1,126 @@
-.centralMedico {
+/* Estilo geral */
+.centralMedico, #esporte, #alimento {
     height: 100dvh;
     width: 100%;
     padding: 30px;
     justify-content: center;
     align-items: center;
     display: flex;
-    background-image: url('MedicoWall.png');
     background-size: cover;
+    background-position: center;
 }
 
+/* Caixa de agendamento */
 .MedicoAgenda {
-    box-shadow: 2px 2px 10px 2px#cacaca;
-    width: 500px;
-    height: 430px;
-    padding-top: 80px;
+    box-shadow: 2px 2px 10px 2px #cacaca;
+    width: 90%; /* Ajuste para ocupar a maior parte da tela em telas menores */
+    max-width: 500px; /* Tamanho máximo para telas maiores */
+    height: auto;
+    padding: 20px;
+    background-color: #ffffff; /* Fundo branco para contraste */
+    border-radius: 10px;
 }
 
+/* Informações médicas */
 .inforMedico {
     display: flex;
-    width: 100%;
+    flex-wrap: wrap; /* Permite que os itens se ajustem em telas menores */
     gap: 10px;
     justify-content: center;
     align-items: center;
     padding: 0;
+}
+
+/* Campos de entrada */
+.nomeMedico, .matriculaMedico, .centralMatriculaMedico, .centralNomeMedico, .centralSetorMedico, .centralHoraMedico {
+    width: 100%;
+}
+
+input, select {
+    outline: none;
     padding: 10px;
-}
-
-.nomeMedico {
+    border: 1px solid #cacaca;
+    border-radius: 5px;
     width: 100%;
 }
 
-.matriculaMedico {
-    width: 100%;
+select:active {
+    background-color: #003e57;
 }
 
-.centralMatriculaMedico {
-    width: 30%;
-}
-
-.centralNomeMedico {
-    width: 70%;
-}
-
-.centralSetorMedico {
-    width: 50%;
-}
-
-.centralHoraMedico {
-    width: 50%;
-}
-
+/* Botão */
 .buttonMedico {
     display: flex;
     justify-content: center;
-    align-self: center;
     padding: 10px;
-
-    button{
-        border:none;
-        padding: 10px;
-        border-radius: 15px;
-        background-color: #00719e;
-        color: #ffffff;
-        width: 70%;
-    }
-    button:hover{
-        background-color: #003e57;
-        transition: .4s all;
-        cursor: pointer;
-    }
 }
 
-.tituloMedico{
-    font-size: 30px;
-    width: 50%;
-    color: #00719e;
-    margin: auto;
+.buttonMedico button {
     border: none;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #00719e;
+    color: #ffffff;
+    width: 100%; /* O botão ocupa a largura total */
+    max-width: 300px; /* Tamanho máximo */
+    font-size: 16px;
 }
 
-input{
-    outline: none;
-    padding: 5px;
-}
-
-select{
-    padding: 5px;
-    outline: none;
-}
-select:active{
+.buttonMedico button:hover {
     background-color: #003e57;
-
+    transition: 0.4s all;
+    cursor: pointer;
 }
-.successMessage{
+
+/* Título */
+.tituloMedico {
+    font-size: 24px;
+    text-align: center;
+    color: #00719e;
+    margin: 20px auto;
+    width: 100%;
+}
+
+/* Mensagem de sucesso */
+.successMessage {
     font-size: 17px;
     color: #0dcc1d;
     padding: 10px;
+    text-align: center;
 }
 
-#esporte{
-    height: 100dvh;
-    width: 100%;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    background-image: url('EsporteCapa.jpg');
-    background-size: contain;
-    background-position: center;
+/* Responsividade */
+@media (max-width: 768px) {
+    .centralMedico, #esporte, #alimento {
+        padding: 20px;
+    }
+
+    .MedicoAgenda {
+        width: 100%; /* Ocupa toda a largura disponível */
+        padding: 15px;
+    }
+
+    .tituloMedico {
+        font-size: 20px;
+    }
+
+    .buttonMedico button {
+        font-size: 14px;
+        padding: 8px;
+    }
 }
 
-#esporteagende{
-    background-color: rgba(223, 223, 223, 0.671);
-}
+@media (max-width: 480px) {
+    .MedicoAgenda {
+        padding: 10px;
+    }
 
-#alimento{
-    height: 100dvh;
-    width: 100%;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    background-image: url('AlimentoCapa.png');
-    background-size: cover;
-    background-position: center;
+    .tituloMedico {
+        font-size: 18px;
+    }
+
+    .buttonMedico button {
+        font-size: 12px;
+        padding: 6px;
+    }
 }

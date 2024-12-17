@@ -20,17 +20,8 @@ export default function Header({ Logo, menu }) {
     return (
         <header className="header">
             <img src={LogoP} className="header-logo" alt="logo" />
-
-            <div className="MenuInf">
-                {/* Ícone do menu hamburguer */}
-                <div className="hamburger" onClick={toggleMenu}>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-
-            <nav className={`header-links ${menuOpen ? 'active' : ''}`}>
+            <div className='navPerfil'>
+            <nav className={`header-links ${menuOpen ? 'active' : ''}`} id='links'>
                 <Link to="/home" className="menu-item">Home</Link>
                 <Link to="/setor_medico" className="menu-item">Setor Médico</Link>
                 <Link to="/setor_esporte" className="menu-item">Setor Esportivo</Link>
@@ -39,6 +30,7 @@ export default function Header({ Logo, menu }) {
 
             <div className="perfil">
                 {/* Adicione aqui o ícone de perfil ou outras funcionalidades */}
+            </div>
             </div>
         </header>
     );

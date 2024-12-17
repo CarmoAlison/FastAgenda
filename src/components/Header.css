@@ -48,44 +48,18 @@
 
 /* Responsividade */
 
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column; /* Organiza o layout em coluna em telas menores */
-        align-items: flex-start;
-    }
 
-    .header-links {
-        display: none; /* Esconde os links em telas pequenas */
-        flex-direction: column;
-        width: 100%;
-    }
 
-    .header-links.active {
-        display: flex; /* Exibe os links quando o menu hambúrguer for ativado */
-    }
-
-    .MenuInf {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-    }
-
-    .hamburger {
-        display: block; /* Exibe o ícone de hambúrguer */
-        cursor: pointer;
-    }
-
-    .hamburger div {
-        width: 30px;
-        height: 3px;
-        background-color: var(--corQui);
-        margin: 5px 0;
-        transition: 0.3s;
+@media (max-width: 769px) {
+    #links {
+        display: none; /* Esconde o hambúrguer em telas grandes */
     }
 }
 
-@media (min-width: 769px) {
-    .hamburger {
-        display: none; /* Esconde o hambúrguer em telas grandes */
-    }
+.navPerfil{
+    display: flex;
+    width: 800px;
+    gap: 20px;
+    justify-content: end;
+    align-items: center;
 }
